@@ -18,8 +18,12 @@ bottomFrame = Frame(root, borderwidth = 75, bg = "black")
 bottomFrame.pack(side=BOTTOM, anchor="s")
 
 weatherData = fetchdata.getWeatherUpdate()
+calendarData = fetchdata.getCalendarInfo()
 
-
+for i in range(len(calendarData)):
+    event = Label(bottomFrame, text = calendarData[i],
+                  fg ="white", bg="black", font=("Helvetica",40))
+    event.pack(fill=tk.BOTH, expand = true)
 
 temp = weatherData[0],"\N{DEGREE SIGN}"+"C"
 temperature = Label(topleftFrame, text = temp,
